@@ -4,8 +4,8 @@ public class DirectoryObserver {
     private let fileDescriptor: CInt
     private let source: DispatchSourceProtocol
 
-    public init(URL: URL, block: @escaping () -> Void) {
-        self.fileDescriptor = open(URL.path, O_EVTONLY)
+    public init(at url: URL, block: @escaping () -> Void) {
+        self.fileDescriptor = open(url.path, O_EVTONLY)
         self.source = DispatchSource.makeFileSystemObjectSource(
             fileDescriptor: self.fileDescriptor,
             eventMask: .write,

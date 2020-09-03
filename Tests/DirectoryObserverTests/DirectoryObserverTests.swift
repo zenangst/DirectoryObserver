@@ -24,7 +24,7 @@ class DirectoryObserverTests: XCTestCase {
 
   func testDirectoryObserver() {
     let expectation = self.expectation(description: "Wait for directory observer to register file system event.")
-    let directoryObserver = DirectoryObserver(URL: url) {
+    let directoryObserver = DirectoryObserver(at: url) {
       expectation.fulfill()
     }
 
